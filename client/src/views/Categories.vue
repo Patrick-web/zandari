@@ -52,6 +52,7 @@ export default {
           })  
 
         const theme = localStorage.getItem('ZandariTheme');
+            document.querySelector('.navBar').style.display = 'block'
 
         setTimeout(()=>{
         if(theme == 'Dark'){

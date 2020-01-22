@@ -185,11 +185,13 @@ export default {
         setTimeout(()=>{
             const frameworks = document.querySelectorAll('.framework');
              frameworks.forEach((frame)=>{
-                 frame.addEventListener('click',(e)=>{
-                     console.log(e.target);
+                 frame.addEventListener('click',(e)=>{ //target the expand icon
+
                     if(e.target.className=='expandBox'){
-                        console.log("Btn clicked");
                         const framesDiv = e.currentTarget.querySelector('.frameworkUploads');
+                        const frameSize = document.querySelectorAll('.frame')[0];
+                        var initHeight;
+                            initHeight = window.getComputedStyle(frameSize, null).getPropertyValue("height");
                         if(framesDiv.classList[1]!='expanded'){
                             e.target.style.transform = 'rotate(90deg)';
                             framesDiv.style.height = '100%';
@@ -197,7 +199,7 @@ export default {
 
                         }else{
                             e.target.style.transform = 'rotate(0deg)';
-                            framesDiv.style.height = '250px';
+                            framesDiv.style.height = `${initHeight}`;
                             //Use get Computed Style of the bax as the height due to responsive 
                             framesDiv.classList.remove('expanded')
                         }
@@ -210,9 +212,8 @@ export default {
             })        
         },200)
 
-        document.querySelector('.toggle').style.display = 'block';
-        document.querySelector('.navBar').style.display = 'block'
-            
+            document.querySelector('.navBar').style.display = 'block'
+
 
       //THEME MODE 
         const theme = localStorage.getItem('ZandariTheme');
@@ -445,16 +446,16 @@ export default {
             margin-left: -10px;
             width: 100%;
         }
-        .framework{
-
+        .frameworkName{
+            padding: 5px;
         }
         .frameworkUploads{
             margin:auto;
             grid-template-columns: 1fr 1fr;
-            height: 165px;
+            height: 160px;
         }
         .frame{
-            margin-top: 20px;
+            margin-top: 10px;
             width: 150px;
             height: 150px;
             margin-left: -5px;

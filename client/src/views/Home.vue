@@ -33,7 +33,7 @@
             <h1 class="heading">So the tutorial needs you to download some stuff...</h1>
             <p class="explainer">You will just head over to Zstore, search for the requirements (softwares, packages the such) download them and Boom!! you are good to go</p>
             <p class="explainer">Don't waste time on google maybe even finding out you downloaded the wrong stuff or not finding what you are looking for</p>
-            <div class="explainer">
+            <div class="explainer" id="Keywords">
                 <p>Fast</p>
                 <p>Easy</p> 
                 <p>Stressfree</p>
@@ -72,7 +72,6 @@ export default {
     created() {
         setTimeout(()=>{
             document.querySelector('.navBar').style.display = 'none';
-            document.querySelector('.toggle').style.display = 'none';
         },0)
     },
 }
@@ -278,6 +277,13 @@ export default {
     }
     #bottomOne{
         margin-top: -20px;
+    }
+    #Keywords{
+        display: flex;
+        flex-direction: row;    
+    }
+    #Keywords p{
+        margin-left: 10px;
     }
     .navBar{
         /* display: none; */
